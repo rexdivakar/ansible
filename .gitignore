@@ -1,2 +1,3 @@
 logs/*
 logs/tower.log
+.DS_Store

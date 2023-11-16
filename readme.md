@@ -31,7 +31,7 @@ ansible all -i inventory -a "uptime"
 ### AdHoc Execution
 
 ```shell
-ansible homepc -i inventory -a "fail2ban-client status sshd" --become
+ansible homepc -i inventory -a "ls -lrths /tmp" --become
 ```
 
 ## Ansible Playbook execution

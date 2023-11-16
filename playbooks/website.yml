@@ -1,0 +1,36 @@
+
+- name: Deploy static website
+  hosts: homepc
+  become: true
+
+  tasks:
+    - name: Check if Nginx is installed
+      block:
+        - name: Check if Nginx is installed
+          stat:
+            path: /usr/sbin/nginx
+          register: nginx_status
+
+        - name: Install Nginx if not present
+          apt:
+            name: nginx
+            state: present
+          when: nginx_status.stat.exists == False
+
+    - name: Deploy index.html
+      copy:
+        src: /Users/rexdivakar/workspace/server/ansible/files/index.html
+        dest: /var/www/html/index.html
+
+    - name: Configure Nginx
+      template:
+        src: /Users/rexdivakar/workspace/server/ansible/files/nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify:
+        - Restart Nginx
+
+  handlers:
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
