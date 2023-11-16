@@ -31,7 +31,7 @@ ansible all -i inventory -a "uptime"
 ### AdHoc Execution
 
 ```shell
-ansible server2-tc -i inventory -a "fail2ban-client status sshd" --become
+ansible homepc -i inventory -a "fail2ban-client status sshd" --become
 ```
 
 ## Ansible Playbook execution
@@ -43,7 +43,7 @@ ansible-playbook ./playbooks/cloud.yml
 ### Fetch Server details
 
 ```shell
-ansible raspberrypi4B -i inventory -m setup -a "filter=*ipv*"
+ansible homepc -i inventory -m setup -a "filter=*ipv*"
 
 ansible all -m setup
 ```
