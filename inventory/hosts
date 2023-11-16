@@ -1,0 +1,8 @@
+[home_server]
+homepc ansible_host=10.64.134.8 ansible_user=zki2s1l
+
+[pi]
+raspberrypi4B ansible_host=192.168.0.126 ansible_user=pi
+
+[pi_zero]
+raspberrypi_zero ansible_host=192.168.0.120 ansible_user=pi
