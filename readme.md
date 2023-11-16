@@ -19,7 +19,7 @@ ansible-inventory -i inventory --list
 ```shell
 ansible all -i inventory -m ping
 
- ansible server1-th:server2-tc -i inventory -m ping
+ansible homepc -i inventory -m ping
 ```
 
 ### Fetch Uptime
@@ -51,13 +51,13 @@ ansible all -m setup
 ## Initial setup (Ping)
 
 ```shell
-ansible -i ./inventory/hosts pi_server -m ping --user pi --ask-pass
+ansible -i ./inventory/hosts homepc -m ping --user pi --ask-pass
 ```
 
 ### Without Password
 
 ```shell
-ansible -i ./inventory/hosts pi_server -m ping --user pi
+ansible -i ./inventory/hosts homepc -m ping --user pi
 ```
 
 ## PlayBook deployment
@@ -66,7 +66,7 @@ ansible -i ./inventory/hosts pi_server -m ping --user pi
 ansible-playbook ./playbooks/apt.yml --user pi -i ./inventory/hosts
 ```
 
-# Execute the playbooks as per user limit
+## Execute the playbooks as per user limit
 
 ```shell
 ansible-playbook ./playbooks/docker_installation.yml --limit=server1-th
