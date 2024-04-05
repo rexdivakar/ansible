@@ -1,0 +1,19 @@
+- name: Update Timezone
+  
+  hosts: all
+  tasks:
+    - name: Set timezone to America/New_York
+      command: timedatectl set-timezone America/New_York
+      register: timezone_change
+
+    - name: Print timezone change output
+      debug:
+        msg: "{{ timezone_change.stdout }}"
+
+    - name: Print current time
+      command: date
+      register: current_time
+
+    - name: Display current time
+      debug:
+        msg: "The current time is: {{ current_time.stdout }}"

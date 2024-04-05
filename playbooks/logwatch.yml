@@ -1,0 +1,23 @@
+---
+- name: Check and Install Logwatch
+  hosts: all
+  become: True
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == 'Debian'
+
+    - name: Check if Logwatch is installed
+      shell: dpkg -l | grep -w 'logwatch'
+      register: logwatch_status
+      ignore_errors: true
+      changed_when: false
+      when: ansible_os_family == 'Debian'
+
+    - name: Install Logwatch if not already installed
+      apt:
+        name: logwatch
+        state: present
+      when: ansible_os_family == 'Debian' and logwatch_status.rc != 0

@@ -1,0 +1,12 @@
+---
+- name: Check Timezone
+  hosts: all
+  
+  tasks:
+    - name: Get timezone
+      command: timedatectl
+      register: timezone_output
+
+    - name: Print timezone
+      debug:
+        msg: "The timezone is: {{ timezone_output.stdout_lines[1].split(':')[1].strip() }}"

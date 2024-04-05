@@ -1,8 +1,8 @@
-[home_server]
-homepc ansible_host=10.64.134.8 ansible_user=zki2s1l
+[dev-machine]
+dev-machine ansible_host=192.168.1.101 ansible_user=debian
 
-[pi]
-raspberrypi4B ansible_host=192.168.0.126 ansible_user=pi
+[cluster_node-2]
+cluster_node-2 ansible_host=192.168.1.102 ansible_user=node
 
-[pi_zero]
-raspberrypi_zero ansible_host=192.168.0.120 ansible_user=pi
+[DNS]
+dns_server ansible_host=192.168.1.10 ansible_user=pihole
