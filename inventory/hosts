@@ -1,8 +1,8 @@
-[dev-machine]
-dev-machine ansible_host=192.168.1.101 ansible_user=debian
+[production-machine]
+production-machine ansible_host=192.168.1.101 ansible_user=debian
 
-[cluster_node-2]
-cluster_node-2 ansible_host=192.168.1.102 ansible_user=node
+[uptime-tracker]
+uptime-tracker ansible_host=192.168.1.90 ansible_user=uptime
 
 [DNS]
 dns_server ansible_host=192.168.1.10 ansible_user=pihole
