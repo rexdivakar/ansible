@@ -1,2 +1,2 @@
 [production-machine]
-production-machine ansible_host=192.168.1.120 ansible_user=debian
+production-machine ansible_host=100.94.182.50 ansible_user=debian
