@@ -1,3 +1,4 @@
 logs/*
 logs/tower.log
 .DS_Store
+logs/tower.log
