@@ -39,4 +39,4 @@ jobs:
         run: ansible-inventory -i inventory --list
 
       - name: Ping Server
-        run: tailscale ping 100.65.253.92
+        run: tailscale ping -c 2 100.65.253.92
